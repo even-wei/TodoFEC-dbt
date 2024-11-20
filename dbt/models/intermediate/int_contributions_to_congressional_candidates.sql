@@ -36,7 +36,7 @@ with candidates as (
         committees.cmte_pty_affiliation,
         contributions.tran_id,
         contributions.transaction_tp,
-        contributions.state,
+        contributions.state as contributor_state,
         contributions.transaction_amt
 
     from candidates
