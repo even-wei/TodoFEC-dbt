@@ -111,3 +111,31 @@ npm --prefix ./evidence run dev
 ```
 
 ![evidence](./gif/advocacy_opposition.gif)
+
+
+### Validate model changes with Recce
+
+[Recce](https://github.com/DataRecce/recce) is a data-validation toolkit.
+
+### Prepare the environment
+
+Once you've updated models, you can use Recce to validate changes
+
+``` bash
+# Prepare the base environment
+git checkout main
+dbt seed -t prod --target-path target-base
+dbt run -t prod --target-path target-base
+dbt docs generate -t prod --target-path target-base
+
+# Prepare the currnt environment
+git checkout <feature_branch>
+dbt seed
+dbt run
+dbt docs generate
+
+# Launch Recce
+recce server
+```
+
+<a href="https://datarecce.io"><img src="https://datarecce.io/assets/images/readme/recce-overview-screenshot.png" style="width: 100%; max-width: 600px; display: block; margin: 0 auto 20px;" /></a>
