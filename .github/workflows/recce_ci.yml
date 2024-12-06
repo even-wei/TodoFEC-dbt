@@ -48,6 +48,13 @@ jobs:
         run: |
           poetry run recce run --cloud
 
+      - name: Upload DuckDB
+        uses: actions/upload-artifact@v4
+        id: recce-artifact-uploader
+        with:
+          name: duckdb
+          path: us_campaign_finance.duckdb
+
       - name: Prepare Recce Summary
         id: recce-summary
         env:
