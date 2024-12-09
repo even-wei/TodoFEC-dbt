@@ -1,5 +1,8 @@
 #! /bin/bash
 
+# Install poetry package
+poetry install
+
 # Install dbt dependencies
 poetry run dbt deps
 
