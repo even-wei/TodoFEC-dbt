@@ -8,5 +8,4 @@ select
     count(*) as transaction_count,
     sum(transaction_amt) as total_amt
 from {{ ref('int_contributions_to_presidential_candidates') }}
-where transaction_tp in ('24A', '24E')
 group by cand_name, transaction_tp, state
