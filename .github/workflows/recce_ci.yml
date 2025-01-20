@@ -36,7 +36,7 @@ jobs:
 
       - name: Prepare dbt Current environment
         run: |
-          git checkout ${{ github.event.pull_request.head.ref }}
+          git checkout ${{ github.sha }}
           poetry run dbt clone --state target-base --full-refresh
           poetry run dbt build -s state:modified+ --state target-base
           poetry run dbt docs generate
