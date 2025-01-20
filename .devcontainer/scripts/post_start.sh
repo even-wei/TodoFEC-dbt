@@ -1,7 +1,7 @@
 #! /bin/bash
 
 # Install poetry package
-poetry install
+poetry install --no-root
 
 # Install dbt dependencies
 poetry run dbt deps
